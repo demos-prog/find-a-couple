@@ -64,9 +64,10 @@ function App() {
   }, [resultArr]);
 
   if (resultArr.length === arr.length / 2 && resultArr.length > 0) {
-    let answer = window.confirm(`Congratulations !!!\ncontinue ?`);
+    let answer = window.confirm(`Congratulations !!!\nContinue ?`);
     console.log(answer);
   }
+  
   return <div id="field">{shuffledArray}</div>;
 }
 

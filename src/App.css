@@ -1,6 +1,6 @@
 .item {
   color: #fff;
-  flex: 0 1 20%;
+  flex: 0 1 23%;
   width: 100px;
   height: 100px;
   display: flex;
@@ -15,8 +15,9 @@
 
 #field {
   margin: auto;
-  width: 80%;
+  width: 60%;
   display: flex;
+  justify-content: space-around;
   flex-wrap: wrap;
 }
 
