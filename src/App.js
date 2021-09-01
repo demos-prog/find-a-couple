@@ -24,7 +24,6 @@ function App() {
     if (prevIndex === index) {
       preveusClickNumber = null;
       prevIndex = null;
-      setResultArr([...resultArr]);
     }
     if (preveusClickNumber === null) {
       preveusClickNumber = number;
@@ -34,7 +33,10 @@ function App() {
       if (preveusClickNumber === number) {
         setResultArr([...resultArr, number]);
       } else {
-        setResultArr([...resultArr]);
+        e.target.classList.add("secTarget");
+        setTimeout(() => {
+          setResultArr([...resultArr]);
+        }, 500);
       }
       preveusClickNumber = null;
       prevIndex = null;
@@ -61,6 +63,10 @@ function App() {
     );
   }, [resultArr]);
 
+  if (resultArr.length === arr.length / 2 && resultArr.length > 0) {
+    let answer = window.confirm(`Congratulations !!!\ncontinue ?`);
+    console.log(answer);
+  }
   return <div id="field">{shuffledArray}</div>;
 }
 
