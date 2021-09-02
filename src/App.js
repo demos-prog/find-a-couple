@@ -70,24 +70,22 @@ function App() {
     );
 
     if (arrOfMatches.length === arr.length / 2 && arrOfMatches.length > 0) {
-      if (firstFlag) {
-        firstFlag = false;
+      if (!firstFlag) {
+        firstFlag = true;
         let answer = window.confirm(`Congratulations !!!\nContinue ?`);
         if (answer) {
-          console.log("--yes");
           handleReset();
         } else {
           alert("As u wish, Bro)");
         }
       } else {
-        firstFlag = true;
+        firstFlag = false;
       }
     }
     // eslint-disable-next-line
   }, [arrOfMatches]);
 
   function handleReset() {
-    console.log("reset");
     setResultArr([]);
     setShuffledArray(
       shuffle(array).map((item, index) => (
@@ -112,7 +110,7 @@ function App() {
         </Grid>
       </div>
       <div id="btnWrapper">
-        <Button id="resetBtn" onClick={handleReset} color="primary">
+        <Button onClick={handleReset} color="primary">
           Reset
         </Button>
       </div>

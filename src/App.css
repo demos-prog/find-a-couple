@@ -35,10 +35,9 @@
 }
 
 #btnWrapper button {
-  padding: 10px 17px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 10px auto;
+  width: 50%;
   border-radius: 4px;
-}
-
-#resetBtn{
   font-size: 30px;
 }
