@@ -29,17 +29,15 @@
   background-color: crimson;
 }
 
-.secTarget{
+.secTarget {
   background-color: chocolate;
 }
 
-#btnWrapper{
+#btnWrapper {
   margin-top: 20px;
 }
 
-#btnWrapper button{
-  background-color: cornflowerblue;
+#btnWrapper button {
   padding: 10px 17px;
   border-radius: 4px;
-  color: #fff;
 }

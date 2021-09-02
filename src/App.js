@@ -1,5 +1,6 @@
 import { nanoid } from "nanoid";
 import { useState, useMemo } from "react";
+import { Button } from "@material-ui/core";
 import "./null_styles.css";
 import "./App.css";
 
@@ -70,6 +71,7 @@ function App() {
   }
 
   function handleReset() {
+    setResultArr([]);
     setShuffledArray(
       shuffle(array).map((item, index) => (
         <div
@@ -87,7 +89,9 @@ function App() {
     <div id="field">
       {shuffledArray}
       <div id="btnWrapper">
-        <button onClick={handleReset}>Reset</button>
+        <Button onClick={handleReset} color="primary">
+          Reset
+        </Button>
       </div>
     </div>
   );
