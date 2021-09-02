@@ -11,7 +11,8 @@ function shuffle(array) {
   return array;
 }
 
-let arr = shuffle([1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8]);
+let array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+let arr = shuffle(array);
 
 function App() {
   let [resultArr, setResultArr] = useState([]);
@@ -67,8 +68,29 @@ function App() {
     let answer = window.confirm(`Congratulations !!!\nContinue ?`);
     console.log(answer);
   }
-  
-  return <div id="field">{shuffledArray}</div>;
+
+  function handleReset() {
+    setShuffledArray(
+      shuffle(array).map((item, index) => (
+        <div
+          key={nanoid()}
+          className="item"
+          onClick={(e) => handleClick(item, e, index)}
+        >
+          {item}
+        </div>
+      ))
+    );
+  }
+
+  return (
+    <div id="field">
+      {shuffledArray}
+      <div id="btnWrapper">
+        <button onClick={handleReset}>Reset</button>
+      </div>
+    </div>
+  );
 }
 
 export default App;

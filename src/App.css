@@ -32,3 +32,14 @@
 .secTarget{
   background-color: chocolate;
 }
+
+#btnWrapper{
+  margin-top: 20px;
+}
+
+#btnWrapper button{
+  background-color: cornflowerblue;
+  padding: 10px 17px;
+  border-radius: 4px;
+  color: #fff;
+}
