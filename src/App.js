@@ -67,6 +67,7 @@ function App() {
         )
       )
     );
+  // eslint-disable-next-line
   }, [resultArr]);
 
   if (resultArr.length === arr.length / 2 && resultArr.length > 0) {
