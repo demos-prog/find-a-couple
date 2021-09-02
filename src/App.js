@@ -12,8 +12,10 @@ function shuffle(array) {
   return array;
 }
 
-let array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
-let arr = shuffle(array);
+const array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+const arr = shuffle(array);
+
+const grd = 12 / Math.floor(Math.sqrt(array.length));
 
 function App() {
   let [resultArr, setResultArr] = useState([]);
@@ -49,13 +51,13 @@ function App() {
     setShuffledArray(
       arr.map((item, index) =>
         resultArr.includes(item) ? (
-          <Grid item xs={3} key={nanoid()} className="colored">
+          <Grid item xs={grd} key={nanoid()} className="colored">
             {item}
           </Grid>
         ) : (
           <Grid
             item
-            xs={3}
+            xs={grd}
             key={nanoid()}
             className="item"
             onClick={(e) => handleClick(item, e, index)}
@@ -78,7 +80,7 @@ function App() {
       shuffle(array).map((item, index) => (
         <Grid
           item
-          xs={3}
+          xs={grd}
           key={nanoid()}
           className="item"
           onClick={(e) => handleClick(item, e, index)}
