@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 import { useState, useMemo } from "react";
-import { Button } from "@material-ui/core";
+import { Button, Grid } from "@material-ui/core";
 import "./null_styles.css";
 import "./App.css";
 
@@ -49,17 +49,19 @@ function App() {
     setShuffledArray(
       arr.map((item, index) =>
         resultArr.includes(item) ? (
-          <div key={nanoid()} className="item colored">
+          <Grid item xs={3} key={nanoid()} className="colored">
             {item}
-          </div>
+          </Grid>
         ) : (
-          <div
+          <Grid
+            item
+            xs={3}
             key={nanoid()}
             className="item"
             onClick={(e) => handleClick(item, e, index)}
           >
             {item}
-          </div>
+          </Grid>
         )
       )
     );
@@ -74,26 +76,32 @@ function App() {
     setResultArr([]);
     setShuffledArray(
       shuffle(array).map((item, index) => (
-        <div
+        <Grid
+          item
+          xs={3}
           key={nanoid()}
           className="item"
           onClick={(e) => handleClick(item, e, index)}
         >
           {item}
-        </div>
+        </Grid>
       ))
     );
   }
 
   return (
-    <div id="field">
-      {shuffledArray}
+    <>
+      <div id="field">
+        <Grid container spacing={3}>
+          {shuffledArray}
+        </Grid>
+      </div>
       <div id="btnWrapper">
         <Button onClick={handleReset} color="primary">
           Reset
         </Button>
       </div>
-    </div>
+    </>
   );
 }
 
