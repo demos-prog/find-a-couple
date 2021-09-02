@@ -15,7 +15,7 @@ function shuffle(array) {
 const array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 const arr = shuffle(array);
 
-const grd = 12 / Math.floor(Math.sqrt(array.length));
+const grd = Math.floor(12 / Math.sqrt(array.length));
 let firstFlag = true;
 
 function App() {
@@ -105,7 +105,7 @@ function App() {
   return (
     <>
       <div id="field">
-        <Grid container spacing={3}>
+        <Grid id="grid" container spacing={3}>
           {shuffledArray}
         </Grid>
       </div>
