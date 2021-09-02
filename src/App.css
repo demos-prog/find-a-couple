@@ -13,7 +13,7 @@
 }
 
 #field {
-  margin: 50px auto;
+  margin: 50px auto 30px;
   width: 60%;
 }
 
@@ -37,4 +37,8 @@
 #btnWrapper button {
   padding: 10px 17px;
   border-radius: 4px;
+}
+
+#resetBtn{
+  font-size: 30px;
 }

@@ -11,14 +11,15 @@ function shuffle(array) {
   }
   return array;
 }
-
-const array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+const array = [1, 1];
+// const array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 const arr = shuffle(array);
 
 const grd = 12 / Math.floor(Math.sqrt(array.length));
+let firstFlag = true;
 
 function App() {
-  let [resultArr, setResultArr] = useState([]);
+  let [arrOfMatches, setResultArr] = useState([]);
   let [shuffledArray, setShuffledArray] = useState([]);
 
   let preveusClickNumber = null;
@@ -35,11 +36,11 @@ function App() {
       e.target.classList.add("targeted");
     } else {
       if (preveusClickNumber === number) {
-        setResultArr([...resultArr, number]);
+        setResultArr([...arrOfMatches, number]);
       } else {
         e.target.classList.add("secTarget");
         setTimeout(() => {
-          setResultArr([...resultArr]);
+          setResultArr([...arrOfMatches]);
         }, 500);
       }
       preveusClickNumber = null;
@@ -50,7 +51,7 @@ function App() {
   useMemo(() => {
     setShuffledArray(
       arr.map((item, index) =>
-        resultArr.includes(item) ? (
+        arrOfMatches.includes(item) ? (
           <Grid item xs={grd} key={nanoid()} className="colored">
             {item}
           </Grid>
@@ -67,19 +68,26 @@ function App() {
         )
       )
     );
-  // eslint-disable-next-line
-  }, [resultArr]);
 
-  if (resultArr.length === arr.length / 2 && resultArr.length > 0) {
-    let answer = window.confirm(`Congratulations !!!\nContinue ?`);
-    if (answer) {
-      handleReset();
-    } else {
-      alert("OK, bro)");
+    if (arrOfMatches.length === arr.length / 2 && arrOfMatches.length > 0) {
+      if (firstFlag) {
+        firstFlag = false;
+        let answer = window.confirm(`Congratulations !!!\nContinue ?`);
+        if (answer) {
+          console.log("--yes");
+          handleReset();
+        } else {
+          alert("As u wish, Bro)");
+        }
+      } else {
+        firstFlag = true;
+      }
     }
-  }
+    // eslint-disable-next-line
+  }, [arrOfMatches]);
 
   function handleReset() {
+    console.log("reset");
     setResultArr([]);
     setShuffledArray(
       shuffle(array).map((item, index) => (
@@ -104,7 +112,7 @@ function App() {
         </Grid>
       </div>
       <div id="btnWrapper">
-        <Button onClick={handleReset} color="primary">
+        <Button id="resetBtn" onClick={handleReset} color="primary">
           Reset
         </Button>
       </div>
