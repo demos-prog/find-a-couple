@@ -71,7 +71,11 @@ function App() {
 
   if (resultArr.length === arr.length / 2 && resultArr.length > 0) {
     let answer = window.confirm(`Congratulations !!!\nContinue ?`);
-    console.log(answer);
+    if (answer) {
+      handleReset();
+    } else {
+      alert("OK, bro)");
+    }
   }
 
   function handleReset() {
