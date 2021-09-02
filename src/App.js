@@ -11,8 +11,8 @@ function shuffle(array) {
   }
   return array;
 }
-const array = [1, 1];
-// const array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
+// const array = [1, 1];
+const array = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8];
 const arr = shuffle(array);
 
 const grd = 12 / Math.floor(Math.sqrt(array.length));
